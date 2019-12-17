@@ -1,0 +1,26 @@
+import numpy as np
+
+def radixConv(frdx,fnum,trdx):
+
+    fnum_type = type(fnum)
+    if fnum_type == int:
+        #xn_10 -> 2~10進数を10進数に変換
+        xn_x10 = int(str(fnum),frdx)
+    else:
+        #xn_10 -> 11~16進数を10進数に変換
+        xn_x10 = int(fnum,frdx)
+
+    #戻り値 -> xn_x10をtrdx(2~36)進数に変換
+    return np.base_repr(xn_x10, base=trdx)
+
+in_fnum = input("変換する数値を入力してください(半角英数字)：")
+in_frdx = int(input("その数値の基数を入力してください(半角数字)："))
+in_trdx = int(input("変換先の基数を入力してください(半角数字)："))
+print() #改行
+
+try:
+    print("結果は、" + radixConv(in_frdx,in_fnum,in_trdx))
+except ValueError:
+    print("!ERROR! 数値もしくは基数が正しくありません。")
+    print("!ERROR! もう一度確認してから実行してください。")
+print() #改行
