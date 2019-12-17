@@ -24,3 +24,4 @@ except ValueError:
     print("!ERROR! 数値もしくは基数が正しくありません。")
     print("!ERROR! もう一度確認してから実行してください。")
 print() #改行
+
